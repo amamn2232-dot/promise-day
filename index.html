@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Promise Day ❤️</title>
+
+<style>
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(to bottom,#ffd6e7,#ffeef5);
+text-align:center;
+padding:20px;
+overflow:hidden;
+}
+
+h1{
+color:#ff2e88;
+font-size:2.5em;
+}
+
+.question{
+font-size:1.4em;
+margin:25px 0;
+}
+
+button{
+padding:14px 28px;
+font-size:1.1em;
+border:none;
+border-radius:12px;
+cursor:pointer;
+margin:10px;
+}
+
+.yes{
+background:#ff4da6;
+color:white;
+}
+
+.no{
+background:#ddd;
+}
+
+.hidden{display:none;}
+
+img{
+width:220px;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.quote{
+margin:15px;
+font-style:italic;
+color:#b30059;
+}
+
+.heart{
+position:fixed;
+color:#ff4da6;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh) scale(0);}
+100%{transform:translateY(-10vh) scale(1.5);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Promise Day 💖</h1>
+
+<div id="questionBox">
+<div class="question">
+Will you promise to always be by my side, no matter what?
+</div>
+
+<button class="yes" onclick="showLove()">Yes, I Promise ❤️</button>
+<button class="no" onmouseover="moveNo()">No</button>
+</div>
+
+<div id="loveBox" class="hidden">
+
+<img src="https://i.imgur.com/6RLKQ9G.png">
+
+<div class="quote">"I promise to love you forever, every single day of forever."</div>
+<div class="quote">You are my today and all of my tomorrows 💕</div>
+
+<h2>Forever Yours ❤️</h2>
+
+</div>
+
+<audio autoplay loop>
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav" type="audio/mpeg">
+</audio>
+
+<script>
+function showLove(){
+document.getElementById("questionBox").classList.add("hidden");
+document.getElementById("loveBox").classList.remove("hidden");
+createHearts();
+}
+
+function moveNo(){
+const btn = event.target;
+btn.style.position="absolute";
+btn.style.left=Math.random()*80+"vw";
+btn.style.top=Math.random()*80+"vh";
+}
+
+function createHearts(){
+for(let i=0;i<25;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+document.body.appendChild(heart);
+}
+}
+</script>
+
+</body>
+</html>
