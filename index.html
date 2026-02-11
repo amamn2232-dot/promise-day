@@ -3,63 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Promise Day ❤️</title>
+<title>For You ❤️</title>
 
 <style>
 body{
-font-family: Arial, sans-serif;
-background: linear-gradient(to bottom,#ffd6e7,#ffeef5);
+margin:0;
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg,#ffdde1,#ee9ca7);
 text-align:center;
-padding:20px;
 overflow:hidden;
+color:#fff;
+}
+
+.container{
+padding:30px;
 }
 
 h1{
-color:#ff2e88;
-font-size:2.5em;
+font-size:2.8em;
+margin-bottom:10px;
+animation:fadeIn 2s ease;
 }
 
 .question{
 font-size:1.4em;
 margin:25px 0;
+min-height:40px;
 }
 
 button{
 padding:14px 28px;
 font-size:1.1em;
 border:none;
-border-radius:12px;
+border-radius:30px;
 cursor:pointer;
 margin:10px;
+transition:0.3s;
 }
 
 .yes{
-background:#ff4da6;
+background:#ff2e88;
 color:white;
+box-shadow:0 6px 20px rgba(0,0,0,0.3);
 }
 
-.no{
-background:#ddd;
-}
+.yes:hover{ transform:scale(1.1); }
 
-.hidden{display:none;}
+.no{ background:#eee; color:#333; }
 
-img{
-width:220px;
+.hidden{ display:none; }
+
+.photo{
+width:240px;
+height:280px;
+margin:20px auto;
 border-radius:20px;
-margin-top:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+background:#fff;
+color:#999;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.2em;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 .quote{
-margin:15px;
 font-style:italic;
-color:#b30059;
+margin:15px;
+font-size:1.1em;
+}
+
+.final{
+font-size:2.2em;
+margin-top:20px;
+animation:fadeIn 2s ease;
 }
 
 .heart{
 position:fixed;
-color:#ff4da6;
+font-size:22px;
 animation:float 6s linear infinite;
 }
 
@@ -67,17 +89,22 @@ animation:float 6s linear infinite;
 0%{transform:translateY(100vh) scale(0);}
 100%{transform:translateY(-10vh) scale(1.5);}
 }
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
 </style>
 </head>
 
 <body>
 
+<div class="container">
+
 <h1>Happy Promise Day 💖</h1>
 
 <div id="questionBox">
-<div class="question">
-Will you promise to always be by my side, no matter what?
-</div>
+<div class="question" id="typed"></div>
 
 <button class="yes" onclick="showLove()">Yes, I Promise ❤️</button>
 <button class="no" onmouseover="moveNo()">No</button>
@@ -85,12 +112,16 @@ Will you promise to always be by my side, no matter what?
 
 <div id="loveBox" class="hidden">
 
-<img src="https://i.imgur.com/6RLKQ9G.png">
+<h2>For ______ ❤️</h2>
+
+<div class="photo">Your Photo</div>
 
 <div class="quote">"I promise to love you forever, every single day of forever."</div>
 <div class="quote">You are my today and all of my tomorrows 💕</div>
 
-<h2>Forever Yours ❤️</h2>
+<div class="final">Will you stay with me forever? 💍</div>
+
+</div>
 
 </div>
 
@@ -99,6 +130,17 @@ Will you promise to always be by my side, no matter what?
 </audio>
 
 <script>
+const text = "Will you promise to always be by my side, no matter what?";
+let i = 0;
+function type(){
+if(i < text.length){
+document.getElementById("typed").innerHTML += text.charAt(i);
+i++;
+setTimeout(type, 50);
+}
+}
+type();
+
 function showLove(){
 document.getElementById("questionBox").classList.add("hidden");
 document.getElementById("loveBox").classList.remove("hidden");
@@ -113,7 +155,7 @@ btn.style.top=Math.random()*80+"vh";
 }
 
 function createHearts(){
-for(let i=0;i<25;i++){
+for(let i=0;i<40;i++){
 let heart=document.createElement("div");
 heart.className="heart";
 heart.innerHTML="💖";
