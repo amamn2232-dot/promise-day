@@ -15,19 +15,26 @@ color:#fff;
 overflow:hidden;
 }
 
-.container{ padding:30px; }
+.container{
+padding:30px 15px;
+max-width:500px;
+margin:auto;
+}
 
-h1{ font-size:2.6em; }
+h1{
+font-size:2.4em;
+margin-bottom:10px;
+}
 
 .question{
-font-size:1.4em;
+font-size:1.3em;
 margin:25px 0;
 min-height:40px;
 }
 
 button{
-padding:14px 28px;
-font-size:1.1em;
+padding:14px 26px;
+font-size:1.05em;
 border:none;
 border-radius:30px;
 cursor:pointer;
@@ -41,19 +48,23 @@ color:white;
 box-shadow:0 6px 20px rgba(0,0,0,0.3);
 }
 
-.yes:hover{ transform:scale(1.1); }
+.yes:hover{ transform:scale(1.08); }
 
-.no{ background:#eee; color:#333; }
+.no{
+background:#eee;
+color:#333;
+}
 
 .hidden{ display:none; }
 
 .photo{
 width:240px;
-height:280px;
-margin:20px auto;
-border-radius:20px;
+height:300px;
+margin:25px auto;
+border-radius:22px;
 overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+box-shadow:0 12px 35px rgba(0,0,0,0.35);
+animation:fadeIn 1.5s ease;
 }
 
 .photo img{
@@ -65,23 +76,31 @@ object-fit:cover;
 .quote{
 font-style:italic;
 margin:15px;
-font-size:1.1em;
+font-size:1.05em;
+opacity:0.95;
 }
 
 .final{
-font-size:2em;
+font-size:1.9em;
 margin-top:20px;
+animation:fadeIn 2s ease;
 }
 
 .heart{
 position:fixed;
 font-size:22px;
 animation:float 6s linear infinite;
+pointer-events:none;
 }
 
 @keyframes float{
 0%{transform:translateY(100vh) scale(0);}
 100%{transform:translateY(-10vh) scale(1.5);}
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
 }
 </style>
 </head>
@@ -104,7 +123,7 @@ animation:float 6s linear infinite;
 <h2>For My Fiancé ❤️</h2>
 
 <div class="photo">
-<img src="WhatsApp Image 2026-02-11 at 12.51.36 PM.jpeg">
+<img src="photo.jpg" alt="Our Photo">
 </div>
 
 <div class="quote">"I promise to love you forever, every single day of forever."</div>
@@ -143,12 +162,12 @@ btn.style.top=Math.random()*80+"vh";
 }
 
 function createHearts(){
-for(let i=0;i<40;i++){
+for(let i=0;i<35;i++){
 let heart=document.createElement("div");
 heart.className="heart";
 heart.innerHTML="💖";
 heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(3+Math.random()*3)+"s";
+heart.style.animationDuration=(4+Math.random()*3)+"s";
 document.body.appendChild(heart);
 }
 }
